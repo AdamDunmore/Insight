@@ -56,9 +56,10 @@ class _EditingNotePagesState extends State<EditingNotePage> {
                   updateNote()
                 }),
           )),
-          Expanded(child: Container(
-            child: quill.QuillEditor.basic(controller: _controller, readOnly: false),
-            padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),
+          Expanded(
+            child: Container(
+              child: quill.QuillEditor.basic(controller: _controller, readOnly: false),
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           )),
           Container(
             padding: const EdgeInsets.fromLTRB(0,20,0,0),
