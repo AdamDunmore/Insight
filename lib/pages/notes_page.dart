@@ -5,7 +5,6 @@ import 'package:insight/pages/editing_note_page.dart';
 import 'package:provider/provider.dart';
 
 import '../data/hive_database.dart';
-import '../models/notes_data.dart' as notedata;
 
 class NotePage extends StatefulWidget {
   const NotePage({super.key});

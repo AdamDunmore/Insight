@@ -4,8 +4,10 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:insight/models/notes_data.dart';
 import 'package:insight/pages/home_page.dart';
 import 'package:provider/provider.dart';
-import 'pages/notes_page.dart';
 import 'package:flutter/services.dart';
+
+import 'pages/notes_page.dart';
+import 'pages/reminders_page.dart';
 
 void main() async{
   await Hive.initFlutter();
@@ -28,7 +30,8 @@ class MyApp extends StatelessWidget {
         builder: (context, child) => MaterialApp(
           routes: {
             '/home': (context) => const HomePage(),
-            '/notes': (context) => const NotePage()
+            '/notes': (context) => const NotePage(),
+            '/reminders' : (context) => const RemindersPage()
           },
           debugShowCheckedModeBanner: false,
           home: HomePage(),
