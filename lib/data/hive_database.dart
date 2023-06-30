@@ -8,7 +8,6 @@ class HiveDatabase {
 
   List<Note> loadNotes() {
     List<Note> savedNotesFormatted = [];
-    print(_myBox.get("ALL_NOTES"));
     if(_myBox.get("ALL_NOTES") != null){
       List<dynamic> savedNotes = _myBox.get("ALL_NOTES");
       for (int i = 0; i < savedNotes.length; i++){
@@ -28,11 +27,6 @@ class HiveDatabase {
         String text = note.text;
         allNotesFormatted.add([id,title,text]);
       }
-      _myBox.clear();
-      print("Cleared");
       _myBox.put("ALL_NOTES", allNotesFormatted);
-      print(_myBox.get("ALL_NOTES"));
-
-
   }
 }

@@ -45,7 +45,6 @@ class _EditingNotePagesState extends State<EditingNotePage> {
       body: Column(
         children: [
           Container(
-            color: Colors.grey[700],
             width: double.infinity,
             height: 40,
             child: Align(
