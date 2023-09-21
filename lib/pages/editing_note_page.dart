@@ -29,6 +29,10 @@ class _EditingNotePagesState extends State<EditingNotePage> {
     setState(() {
       _controller = quill.QuillController(document: doc, selection: const TextSelection.collapsed(offset: 0));
     });
+
+    _controller.document.changes.listen((event){
+      updateNote();
+    });
   }
 
   void updateNote(){
@@ -46,26 +50,22 @@ class _EditingNotePagesState extends State<EditingNotePage> {
         children: [
           Container(
             width: double.infinity,
-            height: 40,
+            height: 85,
+            color: Colors.grey,
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.bottomLeft,
               child: IconButton(
                 icon: Icon(Icons.arrow_back),
                 onPressed: () => {
                   Navigator.pop(context),
-                  updateNote()
                 }),
           )),
           Expanded(
             child: Container(
               child: quill.QuillEditor.basic(controller: _controller, readOnly: false),
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-          )),
-          Container(
-            padding: const EdgeInsets.fromLTRB(0,20,0,0),
-            child: Center(child: quill.QuillToolbar.basic(controller: _controller, showAlignmentButtons: false, showBackgroundColorButton: false, showCenterAlignment: false, showColorButton: false, showClearFormat: false, showCodeBlock: false, showFontFamily: false, showFontSize: false, showHeaderStyle: false, showDirection: false, showDividers: false, showIndent: false, showInlineCode: false, showJustifyAlignment: false, showLeftAlignment: false, showLink: false, showQuote: false, showListNumbers: false, showRightAlignment: false, showStrikeThrough: false,))
-          )
-
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0)
+            )
+          ),
         ],
       ),
     );

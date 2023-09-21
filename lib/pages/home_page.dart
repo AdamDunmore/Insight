@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Column(
         children: [
+          const Padding(padding: EdgeInsets.fromLTRB(0, 40, 0, 0)),
           Container(
             width: double.infinity,
             height: 70,
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: TextButton(
                 onPressed: () => {Navigator.pushNamed(context, '/notes'), HiveDatabase().loadNotes()},
-                child: Text("Notes", style: TextStyle(
+                child: const Text("Notes", style: TextStyle(
                   fontSize: 30,
                   color: Colors.black,
                 ),)

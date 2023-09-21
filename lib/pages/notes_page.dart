@@ -34,13 +34,26 @@ class _NotePageState extends State<NotePage> {
       return Consumer<NoteData>(builder: (context, value, child) => Scaffold(
         body: Column(
             children: [
-              Align(child: IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.arrow_back)), alignment: Alignment.topLeft,),
-              const Padding(
-                  padding: EdgeInsets.fromLTRB(0,10,0,10),
-                  child: Text(
-                  'Notes',
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                  ),
+              Container(
+                color: Colors.grey,
+                height: 85,
+                child: Row(
+                    children: [
+                      //RE-ADD COMMENTED LINES FOR HOME PAGE
+                      //Align(alignment: Alignment.bottomLeft,child: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back)),),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.bottomCenter,child: Container(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),//padding: const EdgeInsets.fromLTRB(0, 0, 50, 12),
+                          child: const Text(
+                            'Notes',
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          )
+                        )
+                        )
+                      )
+                    ]
+                ),
               ),
               Expanded(
                 child: ListView.builder(

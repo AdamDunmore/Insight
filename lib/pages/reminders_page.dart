@@ -13,6 +13,7 @@ class RemindersPage extends StatefulWidget {
 
 class _RemindersPageState extends State<RemindersPage> {
   @override
+
   Widget build(BuildContext context) {
     return Consumer<ReminderData>(builder: (context, value, child) => Scaffold(
       body: Column(

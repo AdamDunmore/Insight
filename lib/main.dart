@@ -10,11 +10,12 @@ import 'pages/notes_page.dart';
 import 'pages/reminders_page.dart';
 
 void main() async{
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
+
   await Hive.initFlutter();
-  
+
   await Hive.openBox('note_database');
 
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
 
   runApp(const MyApp());
 }
@@ -34,8 +35,9 @@ class MyApp extends StatelessWidget {
             '/reminders' : (context) => const RemindersPage()
           },
           debugShowCheckedModeBanner: false,
-          home: HomePage(),
+          home: NotePage(), //home: HomePage(),
         ),
     );
   }
 }
+
