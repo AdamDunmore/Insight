@@ -52,14 +52,29 @@ class _EditingNotePagesState extends State<EditingNotePage> {
             width: double.infinity,
             height: 85,
             color: Colors.grey,
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () => {
-                  Navigator.pop(context),
-                }),
-          )),
+            child: Row(
+              children: [
+                Align(
+                alignment: Alignment.bottomLeft,
+                child: IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () => {
+                      Navigator.pop(context),
+                    }),
+                ),
+                Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),
+                        child: Text(
+                          widget.note.title,
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        )
+                    )
+                )
+              ],
+            )
+          ),
           Expanded(
             child: Container(
               child: quill.QuillEditor.basic(controller: _controller, readOnly: false),

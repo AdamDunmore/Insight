@@ -43,13 +43,14 @@ class _NotePageState extends State<NotePage> {
                       //Align(alignment: Alignment.bottomLeft,child: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back)),),
                       Expanded(
                         child: Align(
-                          alignment: Alignment.bottomCenter,child: Container(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),//padding: const EdgeInsets.fromLTRB(0, 0, 50, 12),
-                          child: const Text(
-                            'Notes',
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                          )
-                        )
+                          alignment: Alignment.bottomCenter,
+                            child: Container(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),//padding: const EdgeInsets.fromLTRB(0, 0, 50, 12),
+                              child: const Text(
+                                'Notes',
+                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                              )
+                            )
                         )
                       )
                     ]
