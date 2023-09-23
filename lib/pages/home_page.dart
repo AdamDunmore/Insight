@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../data/hive_database.dart';
+import '../data/note_database.dart';
+import '../data/reminder_database.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
               border: Border.all(width: 2, color: Colors.black)
             ),
             child: TextButton(
-                onPressed: () => {Navigator.pushNamed(context, '/notes'), HiveDatabase().loadNotes()},
+                onPressed: () => {Navigator.pushNamed(context, '/notes'), NoteDatabase().loadNotes()},
                 child: const Text("Notes", style: TextStyle(
                   fontSize: 30,
                   color: Colors.black,
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                   border: Border.all(width: 2, color: Colors.black)
               ),
               child: TextButton(
-                  onPressed: () => {Navigator.pushNamed(context, '/reminders'), HiveDatabase().loadNotes()},
+                  onPressed: () => {Navigator.pushNamed(context, '/reminders'), ReminderDatabase().loadReminders()},
                   child: Text("Reminders", style: TextStyle(
                     fontSize: 30,
                     color: Colors.black,

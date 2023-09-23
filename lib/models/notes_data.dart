@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:insight/data/hive_database.dart';
+import 'package:insight/data/note_database.dart';
 import 'notes.dart';
 
 class NoteData extends ChangeNotifier {
 
-  final db = HiveDatabase();
+  final db = NoteDatabase();
 
   List<Note> allNotes = [
   ];
@@ -28,13 +28,13 @@ class NoteData extends ChangeNotifier {
         allNotes[i].text = text;
       }
     }
-    HiveDatabase().savedNotes(allNotes);
+    NoteDatabase().savedNotes(allNotes);
   }
 
   void deleteNote(Note note){
     allNotes.remove(note);
     notifyListeners();
-    HiveDatabase().savedNotes(allNotes);
+    NoteDatabase().savedNotes(allNotes);
   }
   
   

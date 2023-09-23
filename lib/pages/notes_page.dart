@@ -4,7 +4,7 @@ import 'package:insight/models/notes_data.dart';
 import 'package:insight/pages/editing_note_page.dart';
 import 'package:provider/provider.dart';
 
-import '../data/hive_database.dart';
+import '../data/note_database.dart';
 
 class NotePage extends StatefulWidget {
   const NotePage({super.key});
@@ -39,13 +39,12 @@ class _NotePageState extends State<NotePage> {
                 height: 85,
                 child: Row(
                     children: [
-                      //RE-ADD COMMENTED LINES FOR HOME PAGE
-                      //Align(alignment: Alignment.bottomLeft,child: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back)),),
+                      Align(alignment: Alignment.bottomLeft,child: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back)),),
                       Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
                             child: Container(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),//padding: const EdgeInsets.fromLTRB(0, 0, 50, 12),
+                              padding: const EdgeInsets.fromLTRB(0, 0, 50, 12),
                               child: const Text(
                                 'Notes',
                                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -94,7 +93,7 @@ class _NotePageState extends State<NotePage> {
                 },
               ),
               actions: [
-                TextButton(onPressed: () => {value.addNote(Note(id: value.allNotes.length,title: noteTitle, text: "")), Navigator.pop(context), noteTitle = "", HiveDatabase().savedNotes(value.allNotes)}, child: const Text("Submit"))
+                TextButton(onPressed: () => {value.addNote(Note(id: value.allNotes.length,title: noteTitle, text: "")), Navigator.pop(context), noteTitle = "", NoteDatabase().savedNotes(value.allNotes)}, child: const Text("Submit"))
               ],
             )
           ),

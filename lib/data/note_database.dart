@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../models/notes.dart';
 
-class HiveDatabase {
+class NoteDatabase {
   final _myBox = Hive.box('note_database');
 
   List<Note> loadNotes() {

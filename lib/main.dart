@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:insight/models/notes_data.dart';
+import 'package:insight/models/reminder_data.dart';
 import 'package:insight/pages/home_page.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
@@ -15,6 +16,7 @@ void main() async{
   await Hive.initFlutter();
 
   await Hive.openBox('note_database');
+  await Hive.openBox('reminder_database');
 
 
   runApp(const MyApp());
@@ -26,16 +28,19 @@ class MyApp extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (context) => NoteData(),
-        builder: (context, child) => MaterialApp(
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider<NoteData>(create: (noteContext) => NoteData()),
+          ChangeNotifierProvider<ReminderData>(create: (reminderContext) => ReminderData()),
+        ],
+        child: MaterialApp(
           routes: {
             '/home': (context) => const HomePage(),
-            '/notes': (context) => const NotePage(),
-            '/reminders' : (context) => const RemindersPage()
+            '/notes': (noteContext) => const NotePage(),
+            '/reminders' : (reminderContext) => const RemindersPage()
           },
-          debugShowCheckedModeBanner: false,
-          home: NotePage(), //home: HomePage(),
+            debugShowCheckedModeBanner: false,
+            home: HomePage()
         ),
     );
   }
